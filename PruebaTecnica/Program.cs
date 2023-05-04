@@ -1,3 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!,jejeje");
-//this is a example
+﻿using PruebaTecnica;
+
+
+//Punto 17
+Console.WriteLine(Punto17.Dividir(5,3));
+
