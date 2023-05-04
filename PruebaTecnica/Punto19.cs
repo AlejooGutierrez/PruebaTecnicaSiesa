@@ -14,9 +14,10 @@ namespace PruebaTecnica
         {
             //Variables
             double pesoDelArbol;
-            int alturaDelArbol = 0;
+            int alturaDelArbol = 1;
             Arbol raizDeDondeViene = null;
             public List<Arbol> subarboles;
+            //int count = 1;
 
             //Constructores
             public Arbol(int peso)
@@ -57,18 +58,24 @@ namespace PruebaTecnica
                 return pesoTotal;
             }
 
+            public int obtenerCantidadArboles()
+            {
+                int contador = 1; 
+                //Similar al anterior metodo, de forma recursiva obtiene la cantidad de arboles
+                foreach (var subarbol in subarboles)
+                {
+                    contador += subarbol.obtenerCantidadArboles(); 
+                }
+                return contador;
+            }
+
             public double CalcularPesoPromedio()
             {
-                double pesoTotal = this.pesoDelArbol;
-                int count = 1;
+                //Obtiene el peso y la cantidad de arboles y las divide obteniendo el promedio.
+                double pesoTotal = this.CalcularPeso();
+                int totalArboles = this.obtenerCantidadArboles();
 
-                //similar a la función anterior, solo que suma la cantidad de iteraciones para saber cuantos arboles y subarboles fuerón tenidos en cuenta para la suma y así sacar el promedio
-                foreach (Arbol subarbol in this.subarboles)
-                {
-                    pesoTotal += subarbol.CalcularPesoPromedio();
-                    count++;
-                }
-                return pesoTotal / count;
+                return pesoTotal / totalArboles;
             }
         }
 
