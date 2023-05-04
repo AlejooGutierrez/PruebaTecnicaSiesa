@@ -4,6 +4,7 @@ using System.Text;
 
 namespace PruebaTecnica
 {
+    ///Casos de prueba en clase Program
     public class Punto18
     {
         public static string ObtenerBase(int numero, int baseAConvertir)
